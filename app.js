@@ -1,6 +1,6 @@
+
+
 let arrayNumber=[];
-
-
 
 window.onload=function(){
     for(let i=0;i<5;i++){
@@ -12,6 +12,7 @@ window.onload=function(){
         listItem.innerHTML=arrayNumber[i];
         currentList.appendChild(listItem);
     }
+    getMedian();
 }
 
 
@@ -32,12 +33,13 @@ function addRandomNumber(){
 
 function addCustomNumber(){
     let customInput=document.getElementById("customNumber").value;
+    const customInputNumber=parseInt(customInput);
     if(customInput<0 || customInput%1!=0){
         alert("Vnesite pozitivno celo število");
         return;
     }
     if(customInput){
-        arrayNumber.push(customInput);
+        arrayNumber.push(customInputNumber);
         let currentList=document.getElementById("currentNumbers");
         let listItem=document.createElement("li");
         listItem.innerHTML=customInput;
@@ -52,7 +54,7 @@ function deleteRandomNumber(){
         let currentList=document.getElementById("currentNumbers");
         currentList.removeChild(currentList.childNodes[index]);
     }    
-}
+};
 
 function deleteAllNumbers(){
     var youSure=confirm("Ali ste prepričani, da želite izbrisati vsa števila na seznamu?")
@@ -63,12 +65,27 @@ function deleteAllNumbers(){
             currentList.removeChild(currentList.firstChild);
         }
     }
-}
+};
+
+
 
 async function calculateMedian(){
-    let medianResult = document.getElementById("median-result");
-    medianResult.innerHTML="Calculating";
+    console.log(arrayNumber);
+    let response = await axios.post("http://localhost:3000/api/mediana/calculate", {
+        numbers: arrayNumber
+    });
+    console.log(response.data);
 
-    let response = await axios.post("api/mediana/calculate", {numbers: arrayNumber});
-    medianResult.innerHTML='Median: $(response.data.median}';
+    getMedian();
+};
+
+async function getMedian(){
+    let response = await axios.get("http://localhost:3000/api/mediana/get");
+    console.log(response.data);
+    var tabela = "";
+    response.data.forEach(element => {
+        tabela+="<tr><td>" + element.MEDIANA + "</td><td>"+ element.STEVILA + "</td></tr>\n" 
+    });
+    //console.log(tabela);
+    document.getElementById("mediansTable").innerHTML=tabela;
 }

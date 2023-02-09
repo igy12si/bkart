@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Kalkulator mediane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="app.css">
+  </head>
+  <body>
+    <main>
+        <div class="container-wide">
+            <div class="row">
+                <div class="col-12 col-md-3 col-lg-2 left-panel">
+                    <h1>Kalkulator mediane</h1>
+                    <button class="btn btn-random-number" onclick="addRandomNumber()">Dodaj naključno število</button>
+                    <div class="input-group mb-3">
+                        <input id="customNumber" type="number" class="form-control" placeholder="Vnesi število" aria-label="Vnesi število" min="0">
+                        <div class="input-group-append">
+                            <button class="btn btn-custom-number" onclick="addCustomNumber()">Dodaj število</button>
+                        </div>
+                    </div>
+                    <div class="separator"></div>
+                    <button class="btn btn-remove-random-number" onclick="deleteRandomNumber()">Odstrani število</button>
+                    <button class="btn btn-remove-all" onclick="deleteAllNumbers()">Odstrani vse</button>
+                    <div class="separator"></div>
+                    <button class="btn btn-calculate" onclick="calculateMedian()">Izračunaj mediano</button>
+                    <div id="median-result"></div>
+                    <div class="svg-imageLB">
+                        <svg viewBox="0 0 100 65" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="30" cy="30" r="30" fill="#23badf" id="lightBlue" />
+                      </svg>
+                    </div>
+                    <div class="svg-imageDB">
+                        <svg viewBox="0 0 100 65" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="40" r="25" fill="#127dc2" d="darkBlue" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="col-12 col-md-9 col-lg-10 right-panel">
+                    <div class="row">
+                        <div class="col-12 col-lg-4">
+                            <div class="card">
+                                <h3>Trenutna števila:</h3>
+                                <div class="numbers-section">
+                                    <ul id="currentNumbers">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-auto">
+                            <div class="card">
+                                <h3>Izračunane mediane</h3>
+                                <div class="numbers-section">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Mediana</th>
+                                                <th>Števila</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="mediansTable">
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="app.js"></script>
+  </body>
+</html>
