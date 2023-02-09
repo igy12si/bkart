@@ -96,16 +96,17 @@ body{margin: 0; font-family: "Open sans", sans-serif; color:#333}
     overflow: hidden;
 }
 .right-panel{
-  background-color: #f0f1f3;
+  background-color: #f9f9f9;
   padding-bottom: 20px;
 }
 
 .card{
   background-color: #fff;
   border-radius: 5px;
-  border:1px solid #ccc;
+  /* border:1px solid #ccc; */
+  box-shadow: 1px 1px 5px 2px rgba(0,0,0,0.1);
   padding: 20px;
-  margin-top: 20px;;
+  margin-top: 20px;
 }
 
 .separator{
@@ -114,15 +115,29 @@ body{margin: 0; font-family: "Open sans", sans-serif; color:#333}
   left: -35px;
   height: 1px;
   margin: 10px 0;
-  background-color: rgba(204,204,204,.5);
+  background-color: #294D72;
   display: block;
+}
+
+/* Typography */
+
+h1{
+  color:#fff;
+  margin: 16px 0 20px 0;
+  font-size: 1.5rem;
+}
+
+h3{
+  color:#031b4e;
+  font-size: 1.2rem;
+  margin-top: 0;
 }
 
 
 /* Buttons */
 .btn{
  margin-bottom: 5px;
- border-radius: 0;
+ border-radius: 5px;
  padding: 10px 20px;
  box-shadow: none;
  border:0;
@@ -131,45 +146,34 @@ body{margin: 0; font-family: "Open sans", sans-serif; color:#333}
     filter: brightness(.8);
 }
 .btn-random-number{
-    background-color: #007bff;
+    background-color: rgba(35, 186, 223,.7);
     color:#fff;
     display: block;
     width: 100%;
 }
 .btn-custom-number{
-    background-color: #17a2b8;
+    background-color: rgba(35, 186, 223,.7);
     color:#fff;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 .btn-remove-random-number{
-    background-color: #ffc107;
+    background-color: #d87c7e;
+    color:#fff;
     display: block;
     width: 100%;
 }
 .btn-remove-all{
-    background-color:#dc3545;
+    background-color:#d26669;
     color:#fff;
     display: block;
     width: 100%;
 }
 .btn-calculate{
-    background-color:#198754;
+    background-color:rgb(18, 125, 194);
     color:#fff;
     display: block;
     width: 100%;
-}
-
-/* Typography */
-
-h1{
-  color:#fff;
-  margin: 0 0 20px 0;
-  font-size: 1.5rem;
-}
-
-h3{
-  color:#333;
-  font-size: 1.2rem;
-  margin-top: 0;
 }
 
 /* Inputs */
@@ -195,14 +199,17 @@ h3{
     width: 100%;
     height: calc(2.25rem + 0px);
     padding: .375rem .75rem;
-    font-size: 1rem;
+    font-size: .84rem;
     line-height: 1.5;
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: 0rem;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
   }
   .input-group-append {
     margin-left: -1px;
